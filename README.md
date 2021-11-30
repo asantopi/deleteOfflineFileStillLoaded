@@ -1,5 +1,7 @@
 2021-11-30
 
+test
+
 [OPE 5.1 Publish offline issue - publish effettuata con Catalog Client]
 
 Durante la fase di publish "OFFLINE" del catalogo Prodotti sull'OPE si è verificato un errore di connessione interrompendo la publish a metà.
