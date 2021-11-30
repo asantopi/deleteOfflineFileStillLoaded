@@ -29,7 +29,7 @@ execute the "extractFileName.sh" on each log file:
 ./extractFileName.sh catalog-client_2021-11-26.1.log
 ```
 
-A file containing all the XML names that can be deleted will be generated in the same folder where you executed the script ---> filenameToDelete.txt
+A file containing all the XML names that can be deleted will be generated in the same folder where you executed the script ---> xmlFileToDelete.txt
 At this point it is possible to run the script to delete the files correctly processed previously.
 Then execute the command to delete file still processed:
 
