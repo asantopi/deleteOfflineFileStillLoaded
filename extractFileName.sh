@@ -1,5 +1,6 @@
 #!/bin/bash
 # 2021-11-30 - v1.0.0
+# @author P4F
 filename=$1
 while read line; do
 	filename_xml=$(echo $line | grep -oE '\bTIBCO_PRODUCTMODELOffline_[^\s<>]*?.xml\b')
