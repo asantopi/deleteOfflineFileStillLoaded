@@ -34,6 +34,6 @@ At this point it is possible to run the script to delete the files correctly pro
 Then execute the command to delete file still processed:
 
 ```
-./deleteFileNameFromList.sh filenameToDelete.txt pathToFolderOFXmlFileToDelete/
+./deleteFileNameFromList.sh xmlFileToDelete.txt pathToFolderOFXmlFileToDelete/
 ```
 Now you can run again the Offline Publish using the Catalog Client.
