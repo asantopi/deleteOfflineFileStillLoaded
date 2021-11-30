@@ -17,7 +17,7 @@ while read line; do
 		if [ -z "$ips" ]; then
 			# File not correctly published
 			printf "\n"
-			echo "il file $filename_xml non è stato pubblicato correttamente e non lo cancelliamo"
+			echo "The file $filename_xml is not correctly published. It will not be deleted."
 		else
 			echo $filename_xml >>xmlFileToDelete.txt
 		fi
