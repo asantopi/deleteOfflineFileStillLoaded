@@ -4,23 +4,22 @@
 filename=$1
 while read line; do
 	filename_xml=$(echo $line | grep -oE '\bTIBCO_PRODUCTMODELOffline_[^\s<>]*?.xml\b')
-	#echo "Filename " $filename_xml
 	if [ -z "$filename_xml" ]; then
-		#Empty String
+		# Empty String
 		printf "."
 	else
-		#File name presente
-		#echo "Found - " $filename_xml
-		#Cerchiamo se la prossima linea contiene la descrizione di success!
-		#Se success allora il file deve essere cancellato altrimenti no!
+		# File name found
+		# echo "Found - " $filename_xml
+		# Find if in the next line there is the phrase "is published successfully"
+		# If is present the file name can go in the list of deletion files. Otherwise print that the file is not published correctly a will not be deleted.
 		read line
 		ips=$(echo $line | grep -oE '[^$\s]*is published successfully[^$\s]*')
 		if [ -z "$ips" ]; then
-			#Non è stato pubblicato correttamente
+			# File not correctly published
 			printf "\n"
 			echo "il file $filename_xml non è stato pubblicato correttamente e non lo cancelliamo"
 		else
-			echo $filename_xml >>filenameToDelete.txt
+			echo $filename_xml >>xmlFileToDelete.txt
 		fi
 		printf "."
 	fi
