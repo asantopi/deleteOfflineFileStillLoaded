@@ -21,3 +21,5 @@ while read line; do
 done <$filename
 echo "$missing files not found"
 echo "$deleted files deleted correctly"
+filesStillTobePublished=$(ls -l $pathToFolderContainingFiles | wc -l)
+echo $filesStillTobePublished " needs to be published." 
