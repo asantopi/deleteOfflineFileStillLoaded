@@ -1,5 +1,6 @@
 #!/bin/bash
 # 2021-11-30 - v1.0.0
+# @author P4F
 filename=$1
 pathToFolderContainingFiles=$2
 missing=0
