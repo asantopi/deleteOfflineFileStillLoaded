@@ -1,0 +1,52 @@
+2021-11-27 00:00:00,684  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:19] Product F0416-NTS_BTA_MODEM-VOCE-SAFE_WEB-SMART_HOME-DISNEY+-TIM_BOX is published successfully 
+2021-11-27 00:00:00,701  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:19] Product Models from file TIBCO_PRODUCTMODELOffline_14579.xml are uploaded to catalog service 
+2021-11-27 00:00:03,570  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:17] Product CRM_TUTTO_EXC_5_X_6M_RIC_OLD is published successfully 
+2021-11-27 00:00:03,572  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:17] Product Models from file TIBCO_PRODUCTMODELOffline_14580.xml are uploaded to catalog service 
+2021-11-27 00:00:08,398  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:19] Product F0174-TIM_SMART_MOBILE_PROMO_3663_EURO_PER_12_MESI is published successfully 
+2021-11-27 00:00:08,400  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:19] Product Models from file TIBCO_PRODUCTMODELOffline_14581.xml are uploaded to catalog service 
+2021-11-27 00:00:12,947  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:17] Product CORRIDOR_OPZIONE_TUTTIMOBILI_SENZA_LIMITI_10 is published successfully 
+2021-11-27 00:00:12,948  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:17] Product Models from file TIBCO_PRODUCTMODELOffline_14582.xml are uploaded to catalog service 
+2021-11-27 00:00:15,872  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:19] Product F0338-NEW_TIM_SUPER_BTA__+MODEM+KIT_SPORT+SCONTO_TIMBOX_PER_KIT_SPORT is published successfully 
+2021-11-27 00:00:15,874  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:19] Product Models from file TIBCO_PRODUCTMODELOffline_14583.xml are uploaded to catalog service 
+2021-11-27 15:38:48,108  INFO [] [] [] [com.tib.uploadmodel.UploadProductModels] [processModel] - [ThreadID:17] Product Models from file TIBCO_PRODUCTMODELOffline_23241.xml are uploaded to catalog service 
+2021-11-27 15:38:48,118 ERROR [] [] [] [com.tib.uploadmodel.UploadProductModels] [publishProductModel] - [ThreadID:17] Unable to connect to http://ope-catalog-cloud-poc.app.telecomitalia.local/v1/productmodel. Shutting down service. 
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://ope-catalog-cloud-poc.app.telecomitalia.local/v1/productmodel": Connection reset; nested exception is java.net.SocketException: Connection reset
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:744)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:670)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:579)
+	at com.tib.uploadmodel.UploadProductModels.publishProductModel(UploadProductModels.java:161)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at com.tib.uploadmodel.UploadProductModels.publishProductModels(UploadProductModels.java:137)
+	at java.base/java.util.Optional.ifPresent(Optional.java:183)
+	at com.tib.uploadmodel.UploadProductModels.lambda$processModel$3(UploadProductModels.java:98)
+	at java.base/java.util.Optional.ifPresent(Optional.java:183)
+	at com.tib.uploadmodel.UploadProductModels.processModel(UploadProductModels.java:94)
+	at com.tib.uploadmodel.UploadProductModels.lambda$uploadModels$1(UploadProductModels.java:70)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.SocketException: Connection reset
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:186)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:53)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	... 13 common frames omitted

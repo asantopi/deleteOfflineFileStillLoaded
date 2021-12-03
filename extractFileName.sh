@@ -1,26 +1,37 @@
 #!/bin/bash
-# 2021-11-30 - v1.0.0
+# 2021-12-03 - v1.1.0
 # @author P4F
-filename=$1
+
+# Including the Progress Bar script dependency.
+my_dir="$(dirname "$0")"
+. "$my_dir/utilityFunctions.sh"
+
+filename=$1 # getting the filename from first argument
+count=1 # count the line of file to pass it as first argument in the progress bar function
+totalLineOfFile=$(wc -l $1 | grep -o "[0-9]\+")  # count the line of file to pass it as second argument in the progress bar function
+fileNameToDelete=$(date +"%Y-%m-%d_%H%M%S")"_list_of_file_to_delete.txt" 
 while read line; do
+	ProgressBar $count $totalLineOfFile # draw the progress bar
+	((count++)) # increment the counter
 	filename_xml=$(echo $line | grep -oE '\bTIBCO_PRODUCTMODELOffline_[^\s<>]*?.xml\b')
-	if [ -z "$filename_xml" ]; then
-		# Empty String
-		printf "."
-	else
-		# File name found
-		# echo "Found - " $filename_xml
+	if [ -n "$filename_xml" ]; then
 		# Find if in the next line there is the phrase "is published successfully"
-		# If is present the file name can go in the list of deletion files. Otherwise print that the file is not published correctly a will not be deleted.
 		read line
-		ips=$(echo $line | grep -oE '[^$\s]*is published successfully[^$\s]*')
-		if [ -z "$ips" ]; then
-			# File not correctly published
-			printf "\n"
-			echo "The file $filename_xml is not correctly published. It will not be deleted."
-		else
-			echo $filename_xml >>xmlFileToDelete.txt
+		((count++)) # increment the counter becaouse we read a new line of file
+		ips=$(echo $line | grep -oE '[^$\s]*is published successfully[^$\s]*') # ips variable stands for "is published successfully" :)
+		if [ -n "$ips" ]; then
+			# If is present the phrase "is published successfully" the file name can go in the list of deletion files. Otherwise the file is not published correctly a will not go into the list of deletion files.
+			echo $filename_xml >> $fileNameToDelete
 		fi
-		printf "."
 	fi
-done <$filename
+done < $filename
+
+echo " "
+
+if test -f "$fileNameToDelete"; then
+    echo "File generated: " $fileNameToDelete
+	echo "Now you can use the following command..."
+	echo "$my_dir/deleteFileNameFromList.sh $fileNameToDelete relativeOrAbsolute/path/to/folder/withFileToDelete/"
+else
+	echo "No file to delete. All Is OK."
+fi
