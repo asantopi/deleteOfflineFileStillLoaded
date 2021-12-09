@@ -7,9 +7,9 @@ We are therefore in an unstable condition that can be resolved in two ways:
 
 Since the publish is very slow and we have about 50,000 products to process, choice number 2 is mandatory.
 
-During the publish phase, the catalog client that takes care of publishing the products on HTTP generates a log file, which contains all the files published both in SUCCESS and in Exception
+During the publish phase, the Catalog Client that takes care of publishing the products over HTTP on a Catalog Service endpoint (We have 2 catalog service one for OM and one for OPE) and generates a log file, which contains the list of the files processed and the state of publish: SUCCESS or Exception
 
-Using the scripts we can delete all files processed correctly and resubmit to publish only those in exception or not processed due to the interruption of the execution of the Catalog Client. 
+Using the scripts we can delete all files processed correctly and resubmit to publish only for those were in exception or not processed due to the interruption of the execution of the Catalog Client. 
 
 
 Usage
