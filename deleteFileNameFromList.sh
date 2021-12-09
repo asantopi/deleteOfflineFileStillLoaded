@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2021-11-30 - v1.0.0
+# 2021-12-09 - v1.0.1
 # @author P4F
 
 # Including the Progress Bar script dependency.
@@ -32,5 +32,5 @@ done <$filename
 echo " "
 echo "$missing files not found"
 echo "$deleted files deleted correctly"
-filesStillTobePublished=$(ls -l $pathToFolderContainingFiles | wc -l)
+filesStillTobePublished=$(ls $pathToFolderContainingFiles | wc -l)
 echo $filesStillTobePublished " needs to be published." 
