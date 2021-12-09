@@ -1,5 +1,3 @@
-2021-11-30
-
 ## [Offline Publish with Catalog Client interrupted or in error]
 
 During the "OFFLINE" publish phase of the Products catalog using the Catalog Client could be issues and leave the publish halfway.
