@@ -29,9 +29,12 @@ while read line; do
 done < $filename
 
 if test -f "$fileNameToDelete"; then
+	echo " "
+	echo "============================================================"
     echo "File generated: " $fileNameToDelete
 	echo "Now you can use the following command..."
 	echo "$my_dir/deleteFileNameFromList.sh $fileNameToDelete relativeOrAbsolute/path/to/folder/withFileToDelete/"
+	echo "============================================================"
 else
 	echo "No file to delete. All Is OK."
 fi
