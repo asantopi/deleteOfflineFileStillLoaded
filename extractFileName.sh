@@ -1,5 +1,5 @@
 #!/bin/bash
-# 2021-12-03 - v1.1.0
+# 2021-12-09 - v1.1.1
 # @author P4F
 
 # Including the Progress Bar script dependency.
